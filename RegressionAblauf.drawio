@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram id="FX38oA9VY5eNkJ9CC_pR" name="Seite-2">
-    <mxGraphModel dx="1915" dy="1165" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1185" dy="1942" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -9,20 +9,20 @@
             <mxPoint x="354" y="110" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PmCIPOVSmnNcuwWq71je-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="neuste Version Active Applications" vertex="1">
+        <mxCell id="PmCIPOVSmnNcuwWq71je-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="neuste Version Active Applications" vertex="1">
           <mxGeometry height="60" width="120" x="40" y="30" as="geometry" />
         </mxCell>
         <mxCell id="PmCIPOVSmnNcuwWq71je-12" edge="1" parent="1" source="PmCIPOVSmnNcuwWq71je-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="PmCIPOVSmnNcuwWq71je-10">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="PmCIPOVSmnNcuwWq71je-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Appendix Aufwand Katrin Taler&amp;nbsp;" vertex="1">
+        <mxCell id="PmCIPOVSmnNcuwWq71je-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Appendix Aufwand Katrin Taler&amp;nbsp;" vertex="1">
           <mxGeometry height="60" width="120" x="40" y="150" as="geometry" />
         </mxCell>
         <mxCell id="PmCIPOVSmnNcuwWq71je-15" edge="1" parent="1" source="PmCIPOVSmnNcuwWq71je-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="PmCIPOVSmnNcuwWq71je-14">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="PmCIPOVSmnNcuwWq71je-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="MergedCreator" vertex="1">
-          <mxGeometry height="80" width="120" x="370" y="70" as="geometry" />
+        <mxCell id="PmCIPOVSmnNcuwWq71je-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;h4&gt;MergedCreator&lt;/h4&gt;&lt;div&gt;speichert als df_small und und df_large, passt die Schnittstelle einheitlich an und verbindet beide df und retruned als csv&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="240" x="240" y="-15" as="geometry" />
         </mxCell>
         <mxCell id="PmCIPOVSmnNcuwWq71je-19" edge="1" parent="1" source="PmCIPOVSmnNcuwWq71je-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="PmCIPOVSmnNcuwWq71je-18">
           <mxGeometry relative="1" as="geometry" />
@@ -32,19 +32,19 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PmCIPOVSmnNcuwWq71je-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;h3&gt;dataMerged&lt;/h3&gt;&lt;div&gt;Csv mit allen verfügbaren Daten über allen auch unnötigen Kategorien in roher Form&lt;/div&gt;" vertex="1">
+        <mxCell id="PmCIPOVSmnNcuwWq71je-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;h3&gt;dataMerged&lt;/h3&gt;&lt;div&gt;Csv mit allen verfügbaren Daten über allen auch unnötigen Kategorien in roher Form&lt;/div&gt;" vertex="1">
           <mxGeometry height="130" width="210" x="550" y="20" as="geometry" />
         </mxCell>
         <mxCell id="PmCIPOVSmnNcuwWq71je-21" edge="1" parent="1" source="PmCIPOVSmnNcuwWq71je-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="PmCIPOVSmnNcuwWq71je-20">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="PmCIPOVSmnNcuwWq71je-18" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;h3&gt;Transformation10V2&lt;/h3&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;nur notwendige Columns filtern&lt;/li&gt;&lt;li&gt;Mapping rohes auf floats, bzw auf dummys&lt;/li&gt;&lt;li&gt;dann nicht dummys StandartSkalieren&lt;/li&gt;&lt;/ol&gt;&lt;div&gt;OPT: Log einbauen&amp;nbsp;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="PmCIPOVSmnNcuwWq71je-18" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;h3&gt;10/Transformation10&lt;/h3&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;nur notwendige Columns filtern&lt;/li&gt;&lt;li&gt;Mapping rohes auf floats, bzw auf dummys&lt;/li&gt;&lt;li&gt;dann nicht dummys StandartSkalieren&lt;/li&gt;&lt;/ol&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="170" width="340" x="490" y="250" as="geometry" />
         </mxCell>
         <mxCell id="PmCIPOVSmnNcuwWq71je-23" edge="1" parent="1" source="PmCIPOVSmnNcuwWq71je-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="PmCIPOVSmnNcuwWq71je-22">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="PmCIPOVSmnNcuwWq71je-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;h4&gt;df_model_10&lt;/h4&gt;&lt;div&gt;CSV mit Transformierten Kriterien wie wir sie brauchen aber noch nicht gereinigt&lt;/div&gt;" vertex="1">
+        <mxCell id="PmCIPOVSmnNcuwWq71je-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;h4&gt;df_model_10&lt;/h4&gt;&lt;div&gt;CSV mit Transformierten Kriterien wie wir sie brauchen aber noch nicht gereinigt&lt;/div&gt;" vertex="1">
           <mxGeometry height="150" width="207.84" x="555.64" y="510" as="geometry" />
         </mxCell>
         <mxCell id="PmCIPOVSmnNcuwWq71je-26" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="PmCIPOVSmnNcuwWq71je-29" value="">
@@ -68,7 +68,7 @@
         <mxCell id="PmCIPOVSmnNcuwWq71je-22" parent="PmCIPOVSmnNcuwWq71je-30" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;h4&gt;Reg10V2&lt;/h4&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;Alle droppen wo effort nicht gegeben&lt;/li&gt;&lt;li&gt;def clean_for_vif&lt;/li&gt;&lt;li&gt;(VIF berechnen und bereinigen )aktuell nicht verwendet&lt;/li&gt;&lt;li&gt;Regression mit Aufteilen in Test und Train Menge&lt;/li&gt;&lt;li&gt;Messwerte wie R hoch 2 und so&amp;nbsp;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="219.05" width="296.01" x="-66.01" as="geometry" />
         </mxCell>
-        <mxCell id="PmCIPOVSmnNcuwWq71je-25" parent="PmCIPOVSmnNcuwWq71je-30" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" value="Regressionskoeffizienten&amp;nbsp;&lt;div&gt;Itercept-wert&lt;/div&gt;" vertex="1">
+        <mxCell id="PmCIPOVSmnNcuwWq71je-25" parent="PmCIPOVSmnNcuwWq71je-30" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;" value="Regressionskoeffizienten&amp;nbsp;&lt;div&gt;Itercept-wert&lt;/div&gt;" vertex="1">
           <mxGeometry height="99.89" width="143.3525502043718" x="79.04744979562822" y="180" as="geometry" />
         </mxCell>
         <mxCell id="PmCIPOVSmnNcuwWq71je-31" edge="1" parent="1" source="PmCIPOVSmnNcuwWq71je-18" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="PmCIPOVSmnNcuwWq71je-29" value="">
@@ -94,7 +94,7 @@
         <mxCell id="PmCIPOVSmnNcuwWq71je-17" parent="PmCIPOVSmnNcuwWq71je-35" style="ellipse;whiteSpace=wrap;html=1;" value="Notebooks" vertex="1">
           <mxGeometry height="80" width="120" x="10" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="PmCIPOVSmnNcuwWq71je-16" parent="PmCIPOVSmnNcuwWq71je-35" style="rounded=0;whiteSpace=wrap;html=1;" value="CSV" vertex="1">
+        <mxCell id="PmCIPOVSmnNcuwWq71je-16" parent="PmCIPOVSmnNcuwWq71je-35" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="CSV" vertex="1">
           <mxGeometry height="60" width="120" x="190" y="50" as="geometry" />
         </mxCell>
         <mxCell id="PmCIPOVSmnNcuwWq71je-36" parent="PmCIPOVSmnNcuwWq71je-35" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=6;" value="Pythondatei" vertex="1">
