@@ -1,0 +1,196 @@
+<mxfile host="app.diagrams.net" pages="3">
+  <diagram name="Non-Backlog-Kalkulation" id="0">
+    <mxGraphModel dx="1407" dy="737" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#2E5496;" value="Non-Backlog-Kalkulation — Gesamtüberblick" vertex="1">
+          <mxGeometry height="40" width="1000" x="300" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ph0_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#595959;" value="PHASE 0 — Datenquellen" vertex="1">
+          <mxGeometry height="20" width="220" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d_train" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;RF-Trainingsdaten&lt;/b&gt;&lt;br&gt;~314 Apps&lt;br&gt;SAO + ACTIVE + ITSM&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: CSV, 1 Zeile/App&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="40" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="d_awm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;AWM-Tasks&lt;/b&gt;&lt;br&gt;142 Tasks (54 aktiv)&lt;br&gt;Basisaufwand in Personenmin.&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: CSV, 1 Zeile/Task&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="240" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Kostenbänder-Dokument&lt;/b&gt;&lt;br&gt;Faktor-Tabellen je Kriterium&lt;br&gt;XXS–XXL → Faktor&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: Word (manuell)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="440" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="d_llm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;LLM-Scores (alt)&lt;/b&gt;&lt;br&gt;Score 1–5 je Task × Kriterium&lt;br&gt;aus Azure OpenAI Scoring&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: CSV&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="640" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ph1_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#595959;" value="PHASE 1 — RF-Modell" vertex="1">
+          <mxGeometry height="20" width="220" x="40" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="rf_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Random Forest Training&lt;/b&gt;&lt;br&gt;Target: SAO-Preisband (1–9)&lt;br&gt;Features: Pre-Operational Set&lt;br&gt;CV R² ≈ 0,858 / MAE ≈ 0,56&lt;br&gt;&lt;font color=&#39;#006600&#39;&gt;✓ Validiert&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="200" x="40" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="rf_out1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Feature Importance&lt;/b&gt;&lt;br&gt;relative Gewichte w_j&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: Dict {Kriterium: Gewicht}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="269" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="rf_out2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Kriterienauswahl&lt;/b&gt;&lt;br&gt;Top-12 Features&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: Liste&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="490" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_rf1" edge="1" parent="1" source="rf_box" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;" target="rf_out1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_rf2" edge="1" parent="1" source="rf_box" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;" target="rf_out2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_d1" edge="1" parent="1" source="d_train" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;entryX=0.3;entryY=0;strokeColor=#6c8ebf;" target="rf_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ph2_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#595959;" value="PHASE 2 — Bereinigung &amp; Normierung" vertex="1">
+          <mxGeometry height="20" width="280" x="40" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="clean_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Proxy-Features entfernen&lt;/b&gt;&lt;br&gt;PBI, App-Alter, Fach-Cluster raus&lt;br&gt;Rest auf Summe 1 normieren&lt;br&gt;&lt;font color=&#39;#cc0000&#39;&gt;⚠ Auswahl subjektiv → begründen&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="220" x="40" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="clean_out" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Bereinigter Gewichtsvektor w_j&lt;/b&gt;&lt;br&gt;~9 Kriterien, Σ w_j = 1&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: Dict {Kriterium: Gewicht}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="220" x="290" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_clean1" edge="1" parent="1" source="clean_box" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;" target="clean_out">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_imp_clean" edge="1" parent="1" source="rf_out1" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;entryX=0.3;entryY=0;strokeColor=#d6b656;" target="clean_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ph3_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#595959;" value="PHASE 3 — Task-Score-Zuordnung (0/1)" vertex="1">
+          <mxGeometry height="20" width="300" x="40" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="llm_start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;LLM-Score als Startvorschlag&lt;/b&gt;&lt;br&gt;Score ≥ 3 → 1, sonst → 0" vertex="1">
+          <mxGeometry height="50" width="200" x="40" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="expert_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Experten-Review&lt;/b&gt;&lt;br&gt;Prüfen + korrigieren&lt;br&gt;max. 3 aktive Kriterien/Task&lt;br&gt;&lt;font color=&#39;#cc0000&#39;&gt;⚠ max. 3 ist vereinfachend&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="200" x="260" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="matrix_out" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Binärmatrix b_ij&lt;/b&gt;&lt;br&gt;54 Tasks × 9 Kriterien&lt;br&gt;Werte ∈ {0,1}&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: DataFrame&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="490" y="565" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_llm_exp" edge="1" parent="1" source="llm_start" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#9673a6;" target="expert_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_exp_mat" edge="1" parent="1" source="expert_box" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#9673a6;" target="matrix_out">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_dllm_start" edge="1" parent="1" source="d_llm" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;entryX=0.3;entryY=0;strokeColor=#6c8ebf;" target="llm_start">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ph4_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#595959;" value="PHASE 4 — Kalibrierung (iterativ)" vertex="1">
+          <mxGeometry height="20" width="280" x="40" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="kalib_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Globale Rückrechnung&lt;/b&gt;&lt;br&gt;$$w_j^{AWM} = \frac{\sum_i B_i \cdot b_{ij}}{\sum_i B_i}$$&lt;br&gt;Vergleich mit w_j^RF&lt;br&gt;Abweichung &gt; 5% → nachjustieren&lt;br&gt;&lt;font color=&#39;#cc0000&#39;&gt;⚠ Konvergenz nicht garantiert&lt;/font&gt;" vertex="1">
+          <mxGeometry height="149" width="258" x="40" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="kalib_out" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Kalibrierte Binärmatrix&lt;/b&gt;&lt;br&gt;plausibel gegen RF-Importance&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: DataFrame&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="200" x="330" y="725" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_feedback" edge="1" parent="1" source="kalib_box" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;entryX=0;entryY=1;strokeColor=#cc0000;dashed=1;fontSize=9;" target="expert_box" value="nachjustieren">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="750" />
+              <mxPoint x="20" y="595" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr_mat_kalib" edge="1" parent="1" source="matrix_out" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;entryX=0.3;entryY=0;strokeColor=#d6b656;" target="kalib_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_kalib_out" edge="1" parent="1" source="kalib_box" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;" target="kalib_out">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_clean_kalib" edge="1" parent="1" source="clean_out" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#d6b656;dashed=1;" target="kalib_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ph5_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#595959;" value="PHASE 5 — Kostenbänder-Mapping" vertex="1">
+          <mxGeometry height="20" width="280" x="700" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="map_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Kategorie → Faktor f_j&lt;/b&gt;&lt;br&gt;z.B. Schnittstellen XL → 1,6&lt;br&gt;Referenz = 1,0 je Kriterium&lt;br&gt;&lt;font color=&#39;#cc0000&#39;&gt;⚠ Faktoren unvalidiert (Expertenannahme)&lt;/font&gt;&lt;br&gt;&lt;font color=&#39;#cc0000&#39;&gt;⚠ Anderes Format als RF-Mapping&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="260" x="700" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="map_out" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Faktorvektor f_j&lt;/b&gt;&lt;br&gt;1 Wert je Kriterium pro App&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: Dict {Kriterium: Faktor}&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="200" x="1000" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_kb_map" edge="1" parent="1" source="d_kb" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;entryX=0.3;entryY=0;strokeColor=#6c8ebf;" target="map_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_map_out" edge="1" parent="1" source="map_box" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;" target="map_out">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ph6_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#595959;" value="PHASE 6 — Aufwandsberechnung" vertex="1">
+          <mxGeometry height="20" width="280" x="700" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Formel&lt;/b&gt;&lt;br&gt;$$\text{Aufwand} = \sum_i \left[ B_i \cdot \frac{\sum_j b_{ij} \cdot f_j}{\sum_j b_{ij}} \right]$$&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Falls alle b_ij=0: Faktor=1,0&lt;/font&gt;" vertex="1">
+          <mxGeometry height="92" width="265" x="700" y="577" as="geometry" />
+        </mxCell>
+        <mxCell id="calc_out" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Gesamtaufwand App&lt;/b&gt;&lt;br&gt;Personenminuten über Laufzeit&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: Skalar&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="180" x="1010" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_kalib_calc" edge="1" parent="1" source="kalib_out" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.8;strokeColor=#d6b656;" target="calc_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_map_calc" edge="1" parent="1" source="map_out" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#d6b656;" target="calc_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_awm_calc" edge="1" parent="1" source="d_awm" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;entryX=0.2;entryY=0;strokeColor=#6c8ebf;" target="calc_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_calc_out" edge="1" parent="1" source="calc_box" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;" target="calc_out">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ph7_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#595959;" value="PHASE 7 — Validierung" vertex="1">
+          <mxGeometry height="20" width="280" x="700" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="val_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Spearman-Korrelation&lt;/b&gt;&lt;br&gt;Aufwand (AWM) ↔ Preisband (RF)&lt;br&gt;für alle 314 Apps&lt;br&gt;&lt;font color=&#39;#cc0000&#39;&gt;⚠ Braucht Kostenbänder-Format&lt;/font&gt;&lt;br&gt;&lt;font color=&#39;#cc0000&#39;&gt;für alle 314 Apps&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="260" x="700" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="val_out" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Spearman ρ&lt;/b&gt;&lt;br&gt;+ Scatterplot&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Rangfolge plausibel?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="160" x="990" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_calc_val" edge="1" parent="1" source="calc_out" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#d6b656;" target="val_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_val_out" edge="1" parent="1" source="val_box" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#82b366;" target="val_out">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontStyle=1;fontSize=10;" value="Legende" vertex="1">
+          <mxGeometry height="20" width="100" x="1210" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" parent="1" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;" value="Datenquelle" vertex="1">
+          <mxGeometry height="25" width="120" x="1210" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" parent="1" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" value="Verarbeitungsschritt" vertex="1">
+          <mxGeometry height="25" width="120" x="1210" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" parent="1" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;" value="Zwischenergebnis" vertex="1">
+          <mxGeometry height="25" width="120" x="1210" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;fontColor=#cc0000;" value="⚠ Schwachstelle" vertex="1">
+          <mxGeometry height="20" width="140" x="1210" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=9;fontColor=#cc0000;" value="--- Feedback-Schleife" vertex="1">
+          <mxGeometry height="20" width="160" x="1210" y="245" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="rAy9wl1ZrjB9iMKQy4u2" name="Seite-2">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="iGVWtp4TMvDhf_ZxZj06" name="Seite-3">
+    <mxGraphModel dx="1618" dy="848" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
