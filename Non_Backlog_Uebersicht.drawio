@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" pages="2">
   <diagram name="Non-Backlog-Kalkulation" id="0">
-    <mxGraphModel dx="1407" dy="737" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="1169" math="1" shadow="0">
+    <mxGraphModel dx="1027" dy="715" grid="0" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="1169" math="1" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -85,8 +85,8 @@
         <mxCell id="kalib_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Globale Rückrechnung&lt;/b&gt;&lt;br&gt;$$w_j^{AWM} = \frac{\sum_i B_i \cdot b_{ij}}{\sum_i B_i}$$&lt;br&gt;Vergleich mit w_j^RF&lt;br&gt;Abweichung &gt; 5% → nachjustieren&lt;br&gt;&lt;font color=&#39;#cc0000&#39;&gt;⚠ Konvergenz nicht garantiert&lt;/font&gt;" vertex="1">
           <mxGeometry height="149" width="258" x="40" y="700" as="geometry" />
         </mxCell>
-        <mxCell id="kalib_out" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Kalibrierte Binärmatrix&lt;/b&gt;&lt;br&gt;plausibel gegen RF-Importance&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: DataFrame&lt;/font&gt;" vertex="1">
-          <mxGeometry height="50" width="200" x="330" y="725" as="geometry" />
+        <mxCell id="kalib_out" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Kalibrierte Binärmatrix&lt;/b&gt;&lt;br&gt;plausibel gegen RF-Importance&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;Format: df&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="200" x="330" y="730" as="geometry" />
         </mxCell>
         <mxCell id="arr_feedback" edge="1" parent="1" source="kalib_box" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;entryX=0;entryY=1;strokeColor=#cc0000;dashed=1;fontSize=9;" target="expert_box" value="nachjustieren">
           <mxGeometry relative="1" as="geometry">
@@ -127,7 +127,7 @@
           <mxGeometry height="92" width="265" x="700" y="577" as="geometry" />
         </mxCell>
         <mxCell id="calc_out" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;verticalAlign=middle;" value="&lt;b&gt;Gesamtaufwand App&lt;/b&gt;&lt;br&gt;Personenminuten über Laufzeit&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;Format: Skalar&lt;/font&gt;" vertex="1">
-          <mxGeometry height="50" width="180" x="1010" y="605" as="geometry" />
+          <mxGeometry height="50" width="180" x="1006" y="598" as="geometry" />
         </mxCell>
         <mxCell id="arr_kalib_calc" edge="1" parent="1" source="kalib_out" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.8;strokeColor=#d6b656;" target="calc_box">
           <mxGeometry relative="1" as="geometry" />
